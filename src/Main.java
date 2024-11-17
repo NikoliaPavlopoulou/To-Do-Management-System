@@ -13,12 +13,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
-        task.addTask("t3", "project1", 5, LocalDate.of(2024,11, 15 ));
-        task.addTask( "t1", "project1", 6, LocalDate.of(2024, 11, 15));
-        task.addTask( "t2", "project1", 6, LocalDate.of(2024, 11, 16));
+        task.addTask("t4", "project1", 5, LocalDate.of(2024,11, 15 ));
+        task.addTask( "t2", "project1", 6, LocalDate.of(2024, 11, 15));
+        task.addTask( "t3", "project1", 6, LocalDate.of(2024, 11, 16));
         task.addTask( "t5", "project1", 2, LocalDate.of(2024, 12, 05));
         task.addTask( "t6", "project1", 1, LocalDate.of(2024, 11, 15));
-        task.addTask( "t0", "project1", 9, LocalDate.of(2024, 11, 25));
+        task.addTask( "t1", "project1", 9, LocalDate.of(2024, 11, 25));
 
         //Gson Lib
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -42,7 +42,10 @@ public class Main {
                         title = scanner.nextLine();
                         if(title.matches("[0-9]+")){
                             System.out.println("Title must contain at least one letter. Please enter a valid title.");
-                        } else {
+                        }else if (task.getExistingTitle(title)==true){
+                            System.out.println("Title already exist. Please type another name for the Title");
+
+                        }else{
                             break;
                         }
 

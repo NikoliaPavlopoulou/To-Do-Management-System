@@ -20,6 +20,7 @@ public class TaskManager {
 
     }
 
+
     public void updateTaskStatus(String title){
 
         for (NewTask task : tasks) {
@@ -67,7 +68,18 @@ public class TaskManager {
 
                 System.out.println(task);
            }
+        }
     }
+    public boolean getExistingTitle(String inputTitle) {
+        boolean exists=false;
+        for (NewTask task : tasks) {
+
+            if(inputTitle.equals(task.getTitle())){
+                exists=true;
+
+            }
+        }
+        return exists;
     }
 
 
